@@ -1,11 +1,15 @@
-import cors from 'cors';
-import mysql from 'mysql2/promise';  // Use promise-based MySQL
-
 import express from 'express';
+import mysql from 'mysql2/promise';  // Use promise-based MySQL
+import cors from 'cors';
+import dotenv from 'dotenv';
+
 
 const app = express();
 app.use(cors());
 app.use(express.json())
+
+dotenv.config();  // Load environment variables
+
 
 
 const db = mysql.createPool({  // Use connection pooling for better performance
